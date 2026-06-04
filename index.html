@@ -2,135 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>★ El Blog de dyangher ★ Bienvenidos a mi espacio cybernético</title>
-    <style>
-        /* Estilos globales directos del año 2000 */
-        body {
-            background-color: #000000; /* Fondo negro clásico */
-            color: #00FF00;            /* Texto verde Matrix / Neón */
-            font-family: "Courier New", Courier, monospace;
-            padding: 20px;
-            background-image: url('https://web.archive.org/web/20091027053343im_/http://geocities.com/Area51/Vault/1590/stars.gif'); /* Fondo de estrellas animado */
-        }
-
-        /* Contenedor principal usando una tabla o bloques rígidos */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            border: 3px double #00FF00;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.85);
-        }
-
-        header {
-            text-align: center;
-            border-bottom: 2px dashed #00FF00;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #FF00FF; /* Título magenta chillón */
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            text-shadow: 2px 2px #0000FF;
-        }
-
-        /* Estilo de los posts del blog */
-        .post {
-            border: 1px solid #00FFFF; /* Bordes cian */
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: #111111;
-        }
-
-        .post-title {
-            color: #00FFFF;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .post-date {
-            color: #FFFF00; /* Fecha en amarillo */
-            font-size: 0.8em;
-            margin-bottom: 10px;
-        }
-
-        /* Barra lateral o zona de "links" amigos */
-        .sidebar {
-            border: 1px solid #FF00FF;
-            padding: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        a {
-            color: #FFFF00;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: #FF0000;
-            background-color: #FFFF00;
-        }
-
-        /* Contador de visitas retro */
-        .counter {
-            background-color: #222;
-            color: #FF0000;
-            font-family: 'Digital', monospace;
-            padding: 5px 10px;
-            border: 2px solid #555;
-            display: inline-block;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Mi Música Favorita • Frutiger Aero • 10 Ventanas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="desktop-grid" id="ventanasContainer">
+    <!-- pestaña 1 -->
+    <div class="vista-window" data-window-id="1">
+        <div class="title-bar">
+            <span class="title-text">Navegación Musical</span>
+            <div class="window-controls">
+                <button class="btn min">─</button>
+                <button class="btn max">□</button>
+                <button class="btn close">✕</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h3> Explorar</h3>
+            <ul class="nav-links">
+                <li><a href="#"> Inicio / Blog</a></li>
+                <li><a href="#"> Mis Bandas Favoritas</a></li>
+                <li><a href="#"> Álbumes Esenciales</a></li>
+                <li><a href="#"> Discos Recientes</a></li>
+                <li><a href="music_data.xml" target="_blank"> XML (Feed musical)</a></li>
+            </ul>
+            <div class="genero-tag"> Y2K Frutiger Aero </div>
+        </div>
+    </div>
+
     
-    <header>
-        <h1>☄ µ_SîTîØ_CÿBêR_ñêØñ ☄</h1>
-        <marquee scrollamount="5" behavior="scroll" direction="left">
-            ★★★ BIENVENIDOS A MI BLOG PERSONAL - ACTUALIZADO HOY - OPTIMIZADO PARA NETSCAPE NAVIGATOR Y RESOLUCIÓN 800x600 ★★★
-        </marquee>
-    </header>
-
-    <div class="post">
-        <div class="post-title">➢ Iniciando el proyecto ordinario-ftw</div>
-        <div class="post-date">Noche de código // 2000-06-02 21:15</div>
-        <p>prueba de que si puedo hacer el git push ala maye tarde un monton hacerlo y no creo que sea mi diseño final esta vaina.</p>
-        <p>profe si esta checando los push y ve esto paseme paro tire paro.</p>
-    </div>
-
-    <div class="post">
-        <div class="post-title">➢ Modificando el escritorio</div>
-        <div class="post-date">Madrugada de personalización // 2000-05-28 03:40</div>
-        <p>i use linux btw.</p>
-    </div>
-
-    <div class="sidebar">
-        <p><b>▲ MIS ENLACES AMIGOS ▲</b></p>
-        <p>
-            <a href="#">[Mi Firma Digital]</a> | 
-            <a href="#">[Firmar Libro de Visitas]</a> | 
-            <a href="#">[E-Mail (Envíame un correo)]</a>
-        </p>
-        <p>uso linux porcierto<img src="https://web.archive.org/web/20090830050401im_/http://geocities.com/Hollywood/Hills/1874/undercon.gif" alt="En construcción" width="30"></p>
-    </div>
-
-    <footer>
-        <p style="text-align: center; font-size: 0.8em; margin-top: 20px;">
-            Eres el visitante número:<br>
-            <span class="counter">000420</span>
-        </p>
-        <p style="text-align: center; font-size: 0.7em; color: #888;">
-            © 2000 dyangher corporation. Todos los derechos reservados.
-        </p>
-    </footer>
-
+    
 </div>
 
+<footer>✨ Frutiger Aero / Windows Vista vibe • 10 ventanas interactivas • Música favorita: Bandas + Álbumes • <a href="music_data.xml">Ver XML (feed musical)</a></footer>
+
+<script src="script.js"></script>
 </body>
 </html>

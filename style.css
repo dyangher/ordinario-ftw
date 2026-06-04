@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at 10% 30%, #9ad4f5, #b1dcf7, #d7edfc);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', 'Trebuchet MS', 'Tahoma', 'Verdana', sans-serif;
+    padding: 28px 24px;
+    min-height: 100vh;
+}
+
+.desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 26px;
+    align-items: start;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Ventanas estilo Vista/Frutiger Aero */
+.vista-window {
+    background: rgba(245, 245, 245, 0.94);
+    background: linear-gradient(145deg, rgba(255,255,245,0.97) 0%, rgba(230, 235, 240, 0.95) 100%);
+    border-radius: 12px 12px 8px 8px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.7);
+    transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,240,0.7);
+    border-top: 1px solid rgba(255,255,255,0.9);
+}
+
+.vista-window:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Barra de título */
+.title-bar {
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 14px;
+    background: linear-gradient(135deg, #eef4fc 0%, #d8e4f0 50%, #cbdae8 100%);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #a3b3c4;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.title-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #1e2a3a;
+    text-shadow: 0 1px 0 rgba(255,255,240,0.8);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title-text::before {
+    content: "🎵";
+    font-size: 14px;
+    filter: drop-shadow(0 1px 1px white);
+}
+
+/* Botones de ventana */
+.window-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.btn {
+    width: 28px;
+    height: 22px;
+    border: none;
+    background: linear-gradient(to bottom, #fafcff, #dee4ed);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 0 white, 0 1px 1px rgba(0,0,0,0.15);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e4e;
+    transition: 0.07s linear;
+}
+
+.btn:active {
+    background: #cbd6e4;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    transform: scale(0.96);
+}
+
+.btn.close {
+    background: linear-gradient(to bottom, #ffaa9e, #e35f4a);
+    color: white;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    width: 42px;
+}
+
+.btn.close:hover {
+    background: linear-gradient(to bottom, #ffb9ad, #f2452b);
+}
+
+/* Contenido interior */
+.window-content {
+    background: rgba(255, 255, 248, 0.95);
+    padding: 18px 20px;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #fefefe;
+    flex: 1;
+    color: #1f2f3c;
+}
+
+/* Minimizar (clase añadida por JS) */
+.vista-window.minimized .window-content {
+    display: none;
+}
+
+/* Tipografía y listas */
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+    color: #026aa7;
+    border-left: 5px solid #3db7e7;
+    padding-left: 14px;
+}
+
+.band-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0f3f6f, #2a7faa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+}
+
+.album-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.album-list li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%233b8fc2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') left center no-repeat;
+    background-size: 14px;
+    padding-left: 24px;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1e4663;
+}
+
+.album-year {
+    color: #6096b4;
+    font-size: 0.75rem;
+    margin-left: 8px;
+}
+
+.genero-tag {
+    display: inline-block;
+    background: #cae4f5;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #025c8a;
+    margin-top: 8px;
+}
+
+hr {
+    margin: 14px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, #b3d4ec, transparent);
+}
+
+.fecha {
+    font-size: 0.7rem;
+    color: #6f8faa;
+    display: block;
+    margin-bottom: 12px;
+}
+
+a {
+    color: #0582ca;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-shadow: 0 0 2px #8dc9ff;
+    text-decoration: underline;
+}
+
+.nav-links {
+    padding-left: 0;
+}
+
+.nav-links li {
+    margin: 12px 0;
+    list-style: none;
+    border-left: 3px solid #3ba9e2;
+    padding-left: 12px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #2c577c;
+    text-shadow: 0 1px white;
+}
+
+/* Scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #dbe9f5;
+}
+::-webkit-scrollbar-thumb {
+    background: #7ba9c9;
+    border-radius: 20px;
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<music_feed xmlns="http://www.w3.org/2005/Atom" version="1.0">
+    <title>Mi Música Favorita - Catálogo Frutiger Aero</title>
+    <description>Bandas y álbumes que inspiran mi blog con estilo Windows Vista</description>
+    <link href="https://tublog.com/music_feed.xml" rel="self"/>
+    <updated>2025-06-06T12:00:00Z</updated>
+    
+    <band>
+        <name>Linkin Park</name>
+        <genre>Nu Metal, Rock Alternativo</genre>
+        <albums>
+            <album year="2000">Hybrid Theory</album>
+            <album year="2003">Meteora</album>
+            <album year="2007">Minutes to Midnight</album>
+        </albums>
+    </band>
+    
+    <band>
+        <name>Arctic Monkeys</name>
+        <genre>Indie Rock, Post-punk revival</genre>
+        <albums>
+            <album year="2006">Whatever People Say I Am, That's What I'm Not</album>
+            <album year="2013">AM</album>
+            <album year="2022">The Car</album>
+        </albums>
+    </band>
+    
+    <band>
+        <name>Coldplay</name>
+        <genre>Britpop, Rock alternativo</genre>
+        <albums>
+            <album year="2000">Parachutes</album>
+            <album year="2002">A Rush of Blood to the Head</album>
+            <album year="2008">Viva la Vida</album>
+        </albums>
+    </band>
+    
+    <band>
+        <name>Muse</name>
+        <genre>Rock progresivo, Space rock</genre>
+        <albums>
+            <album year="2001">Origin of Symmetry</album>
+            <album year="2006">Black Holes and Revelations</album>
+            <album year="2015">Drones</album>
+        </albums>
+    </band>
+    
+    <band>
+        <name>Daft Punk</name>
+        <genre>French House, Electrónica</genre>
+        <albums>
+            <album year="2001">Discovery</album>
+            <album year="2013">Random Access Memories</album>
+        </albums>
+    </band>
+
+    <band>
+        <name>Radiohead</name>
+        <genre>Art rock, Electrónica experimental</genre>
+        <albums>
+            <album year="1997">OK Computer</album>
+            <album year="2000">Kid A</album>
+            <album year="2007">In Rainbows</album>
+        </albums>
+    </band>
+    
+    <note>Este archivo XML representa el catálogo musical que acompaña el diseño de 10 ventanas. Puedes editarlo o ampliarlo con más bandas.</note>
+</music_feed>
