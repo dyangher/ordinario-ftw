@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blog_y2k>
+    <info>
+        <titulo>Blog Y2K - Frutiger Aero Nocturno</titulo>
+        <descripcion>Datos de música, juegos y perfil para editar</descripcion>
+        <fecha_actualizacion>2025-06-07</fecha_actualizacion>
+    </info>
+
+    <seccion nombre="musica">
+        <entrada>
+            <banda>[Nombre banda]</banda>
+            <album>[Álbum destacado]</album>
+            <genero>[Género]</genero>
+            <anio>200X</anio>
+        </entrada>
+        <entrada>
+            <banda>[Otra banda]</banda>
+            <album>[Álbum]</album>
+            <genero>[Género]</genero>
+            <anio>20XX</anio>
+        </entrada>
+    </seccion>
+
+    <seccion nombre="juegos">
+        <juego>
+            <titulo>[Título del juego]</titulo>
+            <plataforma>[PC / Consola]</plataforma>
+            <anio>[Año]</anio>
+            <review>[Tu review corta]</review>
+        </juego>
+        <juego>
+            <titulo>[Otro juego]</titulo>
+            <plataforma>[Plataforma]</plataforma>
+            <anio>[Año]</anio>
+        </juego>
+    </seccion>
+
+    <seccion nombre="dyangher">
+        <perfil>
+            <nombre>Dyangher</nombre>
+            <bio>[me encanta salir a caminar la musica en general dibujar]</bio>
+            <habilidades>
+                <habilidad>[Habilidad 1]</habilidad>
+                <habilidad>[Habilidad 2]</habilidad>
+            </habilidades>
+            <contacto email="[tuemail@ejemplo.com]" red_social="@usuario" />
+        </perfil>
+    </seccion>
+</blog_y2k>

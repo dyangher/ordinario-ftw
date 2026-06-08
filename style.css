@@ -5,226 +5,349 @@
 }
 
 body {
-    background: radial-gradient(circle at 10% 30%, #9ad4f5, #b1dcf7, #d7edfc);
-    background-attachment: fixed;
-    font-family: 'Segoe UI', 'Trebuchet MS', 'Tahoma', 'Verdana', sans-serif;
+    /* Degradado Frutiger Aero: Azul cielo, verde menta y toques morados */
+    background: radial-gradient(circle at 80% 20%, rgba(160, 100, 255, 0.5), transparent 60%),
+                linear-gradient(135deg, #3b8fd9 0%, #6bc46d 40%, #a35ad6 100%);
+    font-family: 'Segoe UI', 'Tahoma', 'Verdana', 'Arial', sans-serif;
     padding: 28px 24px;
     min-height: 100vh;
 }
 
-.desktop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 26px;
-    align-items: start;
-    max-width: 1600px;
+.window-container {
+    max-width: 1300px;
     margin: 0 auto;
-}
-
-/* Ventanas estilo Vista/Frutiger Aero */
-.vista-window {
-    background: rgba(245, 245, 245, 0.94);
-    background: linear-gradient(145deg, rgba(255,255,245,0.97) 0%, rgba(230, 235, 240, 0.95) 100%);
+    /* Cristal traslúcido Windows 7 Aero con matiz morado/azul */
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.5), rgba(220, 210, 255, 0.4));
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
     border-radius: 12px 12px 8px 8px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.7);
-    transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(255,255,240,0.7);
-    border-top: 1px solid rgba(255,255,255,0.9);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.vista-window:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
-}
-
-/* Barra de título */
 .title-bar {
-    height: 34px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(200, 215, 245, 0.5) 50%, rgba(170, 180, 220, 0.4) 51%, rgba(210, 190, 250, 0.5) 100%);
+    padding: 10px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px 0 14px;
-    background: linear-gradient(135deg, #eef4fc 0%, #d8e4f0 50%, #cbdae8 100%);
-    border-radius: 10px 10px 0 0;
-    border-bottom: 1px solid #a3b3c4;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 0 rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .title-text {
-    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.3px;
-    color: #1e2a3a;
-    text-shadow: 0 1px 0 rgba(255,255,240,0.8);
+    font-size: 1.1rem;
+    color: #081c38;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.window-controls {
     display: flex;
-    align-items: center;
     gap: 8px;
 }
 
-.title-text::before {
-    content: "🎵";
-    font-size: 14px;
-    filter: drop-shadow(0 1px 1px white);
-}
-
-/* Botones de ventana */
-.window-controls {
-    display: flex;
-    gap: 6px;
-}
-
 .btn {
-    width: 28px;
-    height: 22px;
-    border: none;
-    background: linear-gradient(to bottom, #fafcff, #dee4ed);
-    border-radius: 6px;
-    box-shadow: inset 0 1px 0 white, 0 1px 1px rgba(0,0,0,0.15);
-    font-size: 12px;
+    width: 34px;
+    height: 26px;
+    border: 1px solid rgba(0, 60, 120, 0.3);
+    background: linear-gradient(to bottom, #ffffff, #c2daf7, #8cb9ed, #bcd5f5);
+    border-radius: 4px;
+    color: #1e3d6b;
     font-weight: bold;
-    cursor: pointer;
+    font-size: 13px;
+    cursor: default;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #2c3e4e;
-    transition: 0.07s linear;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.1);
 }
 
-.btn:active {
-    background: #cbd6e4;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-    transform: scale(0.96);
+.btn.max {
+    background: linear-gradient(to bottom, #d0d0d0, #b0b0b0);
+    color: #555;
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 .btn.close {
-    background: linear-gradient(to bottom, #ffaa9e, #e35f4a);
-    color: white;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-    width: 42px;
+    background: linear-gradient(to bottom, #f7a0b0, #d06070);
+    color: #fff;
+    border-color: #a04050;
 }
 
-.btn.close:hover {
-    background: linear-gradient(to bottom, #ffb9ad, #f2452b);
+/* Navegación entre páginas (barra estilo Windows) */
+.nav-bar {
+    background: rgba(8, 6, 16, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 12px 20px;
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Contenido interior */
-.window-content {
-    background: rgba(255, 255, 248, 0.95);
-    padding: 18px 20px;
-    border-radius: 0 0 8px 8px;
-    border-top: 1px solid #fefefe;
-    flex: 1;
-    color: #1f2f3c;
-}
-
-/* Minimizar (clase añadida por JS) */
-.vista-window.minimized .window-content {
-    display: none;
-}
-
-/* Tipografía y listas */
-h3 {
-    font-size: 1.35rem;
-    margin-bottom: 10px;
-    color: #026aa7;
-    border-left: 5px solid #3db7e7;
-    padding-left: 14px;
-}
-
-.band-name {
-    font-size: 1.6rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #0f3f6f, #2a7faa);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    margin-bottom: 8px;
-}
-
-.album-list {
-    list-style: none;
-    margin-top: 10px;
-}
-
-.album-list li {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%233b8fc2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') left center no-repeat;
-    background-size: 14px;
-    padding-left: 24px;
-    margin: 10px 0;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #1e4663;
-}
-
-.album-year {
-    color: #6096b4;
-    font-size: 0.75rem;
-    margin-left: 8px;
-}
-
-.genero-tag {
-    display: inline-block;
-    background: #cae4f5;
-    padding: 4px 12px;
-    border-radius: 30px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: #025c8a;
-    margin-top: 8px;
-}
-
-hr {
-    margin: 14px 0;
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, #b3d4ec, transparent);
-}
-
-.fecha {
-    font-size: 0.7rem;
-    color: #6f8faa;
-    display: block;
-    margin-bottom: 12px;
-}
-
-a {
-    color: #0582ca;
+.nav-bar a {
+    color: #f0f0ff;
     text-decoration: none;
     font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: 0.15s;
+    text-shadow: 0 1px 1px black;
 }
 
-a:hover {
-    text-shadow: 0 0 2px #8dc9ff;
-    text-decoration: underline;
+.nav-bar a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    color: white;
 }
 
-.nav-links {
+.content {
+    padding: 28px 32px;
+    min-height: 550px;
+}
+
+/* Tarjetas para juegos */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.game-card {
+    background: rgba(20, 20, 45, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid rgba(200, 180, 255, 0.4);
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 160, 255, 0.8);
+    background: rgba(30, 25, 55, 0.7);
+}
+
+.game-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    background: #1a1530;
+}
+
+.game-card h3 {
+    color: #e0e0ff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.game-card p {
+    color: #ccc5ee;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Pestañas para música */
+.music-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 6px;
+}
+
+.music-tab-btn {
+    background: rgba(30, 25, 60, 0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 24px;
+    color: #e0dcff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.1s;
+}
+
+.music-tab-btn.active {
+    background: rgba(110, 80, 200, 0.8);
+    color: white;
+    border-color: white;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(160, 120, 255, 0.5);
+}
+
+.music-tab-pane {
+    display: none;
+    animation: fade 0.2s ease;
+}
+
+.music-tab-pane.active {
+    display: block;
+}
+
+/* Cards para bandas (estilo similar a juegos pero horizontal) */
+.band-card {
+    background: rgba(20, 20, 45, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(200, 180, 255, 0.4);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.band-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+    background: #1a1530;
+    border: 1px solid #8a7ac0;
+}
+
+.band-info {
+    flex: 1;
+}
+
+.band-info h3 {
+    color: #e0e0ff;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.band-info p {
+    color: #ccc5ee;
+    margin-bottom: 6px;
+}
+
+/* Perfil */
+.profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.avatar-placeholder {
+    width: 110px;
+    height: 110px;
+    background: rgba(30, 25, 60, 0.8);
+    border-radius: 50%;
+    border: 2px solid #aa9eff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #ddd0ff;
+    font-size: 0.9rem;
+}
+
+.panel {
+    background: rgba(20, 20, 45, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(200, 180, 255, 0.4);
+}
+
+.panel h2 {
+    color: #e0d8ff;
+    border-left: 5px solid #aa99ff;
+    padding-left: 14px;
+    margin-bottom: 18px;
+    font-size: 1.35rem;
+}
+
+.panel p, .panel li {
+    color: #e5e0ff;
+}
+
+.styled-list {
+    list-style: none;
     padding-left: 0;
 }
 
-.nav-links li {
+.styled-list li {
     margin: 12px 0;
-    list-style: none;
-    border-left: 3px solid #3ba9e2;
-    padding-left: 12px;
+    padding-left: 26px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="%23b79eff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') left center no-repeat;
+    background-size: 14px;
 }
 
-footer {
-    margin-top: 40px;
+.footer {
     text-align: center;
-    font-size: 12px;
-    color: #2c577c;
-    text-shadow: 0 1px white;
+    padding: 14px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 11px;
+    color: #e5dcff;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-/* Scroll */
-::-webkit-scrollbar {
-    width: 10px;
-    background: #dbe9f5;
+@keyframes fade {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-::-webkit-scrollbar-thumb {
-    background: #7ba9c9;
-    border-radius: 20px;
+
+@media (max-width: 700px) {
+    .band-card { flex-direction: column; text-align: center; }
+    .cards-grid { grid-template-columns: 1fr; }
+}
+/* Tarjetas de música - estilo ventanas flotantes */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.music-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.music-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.music-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.music-card h3 {
+    color: #0f2c48;
+    margin: 8px 0 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.music-card p {
+    color: #1a3a5a;
+    font-size: 0.8rem;
+    line-height: 1.4;
 }

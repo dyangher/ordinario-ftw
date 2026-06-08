@@ -2,42 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Mi Música Favorita • Frutiger Aero • 10 Ventanas</title>
+    <title>Inicio - Blog Y2K</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="desktop-grid" id="ventanasContainer">
-    <!-- pestaña 1 -->
-    <div class="vista-window" data-window-id="1">
-        <div class="title-bar">
-            <span class="title-text">Navegación Musical</span>
-            <div class="window-controls">
-                <button class="btn min">─</button>
-                <button class="btn max">□</button>
-                <button class="btn close">✕</button>
-            </div>
-        </div>
-        <div class="window-content">
-            <h3> Explorar</h3>
-            <ul class="nav-links">
-                <li><a href="#"> Inicio / Blog</a></li>
-                <li><a href="#"> Mis Bandas Favoritas</a></li>
-                <li><a href="#"> Álbumes Esenciales</a></li>
-                <li><a href="#"> Discos Recientes</a></li>
-                <li><a href="music_data.xml" target="_blank"> XML (Feed musical)</a></li>
-            </ul>
-            <div class="genero-tag"> Y2K Frutiger Aero </div>
+<div class="window-container">
+    <div class="title-bar">
+        <span class="title-text">Blog Y2K - Frutiger Aero Nocturno</span>
+        <div class="window-controls">
+            <button class="btn">-</button>
+            <button class="btn max">□</button>
+            <button class="btn close">X</button>
         </div>
     </div>
-
-    
-    
+    <div class="nav-bar">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="dyangher.html">Dyangher</a>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <h2>Bienvenido a mi blog personal</h2>
+            <p>Edita todos los textos en los archivos HTML. Aquí puedes escribir una introducción.</p>
+            <hr>
+            <p>Usa la barra de navegación para ir a Música (con pestañas internas), Juegos (con tarjetas) o mi perfil.</p>
+        </div>
+        <div class="panel">
+            <h2>Últimas actualizaciones</h2>
+            <ul class="styled-list">
+                <li>Sección de juegos con tarjetas e imágenes</li>
+                <li>Música organizada por pestañas (bandas, datos, portada)</li>
+                <li>Perfil editable</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">Blog Y2K · Edita directamente el HTML</div>
 </div>
-
-<footer>✨ Frutiger Aero / Windows Vista vibe • 10 ventanas interactivas • Música favorita: Bandas + Álbumes • <a href="music_data.xml">Ver XML (feed musical)</a></footer>
-
 <script src="script.js"></script>
 </body>
 </html>
