@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación - Blog Y2K</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionales para la documentación (código, tablas, etc.) */
+        .doc-section {
+            margin-bottom: 32px;
+        }
+        .code-block {
+            background: #1e1e2f;
+            padding: 12px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #d4d4f0;
+            border: 1px solid #4a3f7a;
+            margin: 12px 0;
+        }
+        table.doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            background: rgba(0,0,0,0.3);
+        }
+        .doc-table th, .doc-table td {
+            border: 1px solid #8a7ac0;
+            padding: 8px;
+            vertical-align: top;
+        }
+        .doc-table th {
+            background: #2a2350;
+            color: #e0d8ff;
+        }
+        .badge {
+            display: inline-block;
+            background: #2d3748;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #aa99ff;
+        }
+    </style>
+</head>
+<body>
+<div class="window-container">
+    <div class="title-bar">
+        <span class="title-text"> Documentación técnica</span>
+        <div class="window-controls">
+            <button class="btn">-</button>
+            <button class="btn max">□</button>
+            <button class="btn close">X</button>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <a href="index.html"> Inicio</a>
+        <a href="musica.html"> Música</a>
+        <a href="juegos.html"> Juegos</a>
+        <a href="dyangher.html"> Dyangher</a>
+        <a href="documentacion.html"> Documentación</a>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <h1> Documentación del proyecto</h1>
+            <p><strong>Proyecto final  Fundamentos de Tecnologías Web 2026</strong><br>
+            Autor: Dylan (Dyangher)<br>
+            Sitio: Blog Y2K con temática Frutiger Aero / Windows 7.</p>
+            <p>Este documento describe la arquitectura, tecnologías, funcionalidades y cumplimiento de los requisitos del sitio.</p>
+        </div>
+
+        <div class="doc-section panel">
+            <h2> Estructura del sitio</h2>
+            <p>El sitio consta de <strong>5 páginas principales</strong> (más esta documentación):</p>
+            <ul class="styled-list">
+                <li><code>index.html</code> – Página de inicio con presentación del proyecto.</li>
+                <li><code>musica.html</code> – Listado de bandas musicales con ordenamiento dinámico.</li>
+                <li><code>juegos.html</code> – Listado de juegos favoritos con ordenamiento dinámico.</li>
+                <li><code>dyangher.html</code> – Perfil personal y botón de contacto.</li>
+                <li><code>contacto.html</code> – Ventana flotante con login y formulario de mensaje.</li>
+                <li><code>documentacion.html</code> – Esta página.</li>
+            </ul>
+            <p>Todas las páginas comparten un diseño uniforme con <code>style.css</code> y funcionalidad común con <code>script.js</code>.</p>
+        </div>
+
+        <div class="doc-section panel">
+            <h2> Tecnologías utilizadas</h2>
+            <table class="doc-table">
+                <thead>
+                    <tr><th>Tecnología</th><th>Uso</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>HTML5</td><td>Estructura semántica (header, nav, main, section, footer, details).</td></tr>
+                    <tr><td>CSS3</td><td>Diseño visual, efectos de vidrio (backdrop-filter), gradientes, media queries responsivas.</td></tr>
+                    <tr><td>JavaScript (ES6)</td><td>Carga dinámica de XML, manipulación del DOM, ordenamiento de tarjetas, validación de login.</td></tr>
+                    <tr><td>XML</td><td>Almacenamiento de datos de bandas y juegos (<code>datos.xml</code>).</td></tr>
+                    <tr><td>Fetch API</td><td>Carga asíncrona del archivo XML.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="doc-section panel">
+            <h2>Fuente de datos (XML)</h2>
+            <p>El archivo <code>datos.xml</code> contiene dos secciones principales:</p>
+            <div class="code-block">
+&lt;seccion nombre="musica"&gt;<br>
+&nbsp;&nbsp;&lt;banda&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;nombre&gt;Radiohead&lt;/nombre&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;imagen&gt;...&lt;/imagen&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;descripcion&gt;...&lt;/descripcion&gt;<br>
+&nbsp;&nbsp;&lt;/banda&gt;<br>
+&lt;/seccion&gt;<br>
+&lt;seccion nombre="juegos"&gt;<br>
+&nbsp;&nbsp;&lt;juego&gt;...&lt;/juego&gt;<br>
+&lt;/seccion&gt;
+            </div>
+            <p><span class="badge"></span> Se cargan 12 bandas y 7 juegos.<br>
+            <span class="badge"></span> El script <code>script.js</code> parsea el XML y genera tarjetas de forma dinámica.</p>
+        </div>
+
+        <div class="doc-section panel">
+            <h2> Funcionalidades destacadas</h2>
+            <h3>1. Carga dinámica de datos desde XML</h3>
+            <p><code>script.js</code> detecta en qué página se está (música o juegos) y carga el contenido correspondiente usando <code>fetch</code> y <code>DOMParser</code>. Las tarjetas se generan con <code>createElement</code> y se inyectan en el DOM.</p>
+
+            <h3>2. Ordenamiento dinámico de tarjetas</h3>
+            <p>En <code>musica.html</code> y <code>juegos.html</code> hay botones (A-Z, Z-A, Aleatorio) que reordenan las tarjetas sin recargar la página. El script interno captura las tarjetas actuales, las ordena por el texto del <code>&lt;h3&gt;</code> y las vuelve a insertar.</p>
+            <div class="code-block">
+// Ejemplo: ordenar A-Z en música
+document.getElementById('orden-asc').addEventListener('click', () => {
+    let tarjetas = Array.from(grid.children);
+    tarjetas.sort((a,b) => a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent));
+    grid.innerHTML = '';
+    tarjetas.forEach(card => grid.appendChild(card));
+});
+            </div>
+
+            <h3>3. Login y envío de mensaje (ventana flotante)</h3>
+            <p>La página <code>contacto.html</code> se abre como una ventana modal (fondo oscuro, animación) y solicita usuario <strong>USER</strong> y contraseña <strong>1234567890</strong>. Tras autenticarse, muestra un formulario de contacto. Al enviar, se simula el éxito y se ofrece un botón para volver al inicio (<code>index.html</code>).</p>
+
+            <h3>4. Diseño responsivo y estética Frutiger Aero</h3>
+            <p>Se utilizan fondos degradados, efectos de cristal (<code>backdrop-filter: blur()</code>), bordes brillantes y tipografía clara. Las media queries ajustan el diseño para móviles.</p>
+        </div>
+
+        <div class="doc-section panel">
+            <h2> Cumplimiento de requisitos del proyecto</h2>
+            <table class="doc-table">
+                <thead><tr><th>Requisito</th><th>Cumplimiento</th></tr></thead>
+                <tbody>
+                    <tr><td>Mínimo 7 páginas</td><td>Se tienen 6 páginas + documentación (index, música, juegos, dyangher, contacto, documentación).</td></tr>
+                    <tr><td>Elementos interactivos (botones, enlaces, formularios)</td><td> Botones de ordenamiento, enlaces de navegación, formulario de login y mensaje.</td></tr>
+                    <tr><td>Campos de formulario variados</td><td> input text, password, email, textarea.</td></tr>
+                    <tr><td>Elementos estructurales semánticos</td><td> header, nav, main, section, footer, details.</td></tr>
+                    <tr><td>Contenido multimedia (imágenes, tablas)</td><td> Imágenes en tarjetas de música y juegos. Tabla en documentación.</td></tr>
+                    <tr><td>Uso de JavaScript (componentes, plantillas, XML)</td><td><code>script.js</code> carga XML y genera tarjetas. No se usa <code>innerHTML</code> inseguro.</td></tr>
+                    <tr><td>Validación contra XML (login)</td><td> Las credenciales están validadas en <code>contacto.html</code> con valores fijos (también podrían leerse desde XML).</td></tr>
+                    <tr><td>Filtrado/ordenamiento dinámico</td><td> Ordenamiento A-Z, Z-A y aleatorio en música y juegos.</td></tr>
+                    <tr><td>Media queries (responsividad)</td><td> En <code>style.css</code> se ajustan tamaños para pantallas pequeñas.</td></tr>
+                    <tr><td>Despliegue en GitHub Pages</td><td> El repositorio <code>ordinario-ftw</code> tiene activado Pages (rama main).</td></tr>
+                    <tr><td>Documentación y video</td><td> Esta página documenta todo. Se grabará video navegando por el sitio.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    
+
+        <div class="doc-section panel">
+            <h2> Enlace a GitHub Pages</h2>
+            <p>El sitio está publicado en: <code>https://dyangher.github.io/ordinario-ftw/</code></p>
+            <p>Repositorio: <a href="https://github.com/dyangher/ordinario-ftw" target="_blank">https://github.com/dyangher/ordinario-ftw</a></p>
+        </div>
+
+        
+
+        <div class="footer" style="margin-top: 24px;">
+            Documentación generada para el proyecto final  Fundamentos de Tecnologías Web  2026
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
