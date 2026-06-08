@@ -71,38 +71,38 @@
     <seccion nombre="juegos">
         <juego>
             <nombre>Minecraft</nombre>
-            <imagen>https://placehold.co/300x300?text=Minecraft</imagen>
-            <descripcion>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</descripcion>
+            <imagen>https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg</imagen>
+            <descripcion>De los juegos a los que mas les tengo aprecio, de los primeros que jugue con conciencia y que vi en internet es gran parte de mi vida como la de muchos de mi generación .</descripcion>
         </juego>
         <juego>
             <nombre>Fortnite</nombre>
-            <imagen>https://placehold.co/300x300?text=Fortnite</imagen>
-            <descripcion>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</descripcion>
+            <imagen>https://m.media-amazon.com/images/M/MV5BMTZlMmIxM2EtN2Y4Zi00M2ZhLTk3NzgtNjJmZTU0MTQ3YjcwXkEyXkFqcGc@._V1_.jpg</imagen>
+            <descripcion>El primer juego que jugue con una computadora decente se mantiene vigente hasta dia de goy y al que le e metido dinero por cosas absurdas grandes momentos que pase desde el inicio del juego hasta la actualidad.</descripcion>
         </juego>
         <juego>
             <nombre>Roblox</nombre>
-            <imagen>https://placehold.co/300x300?text=Roblox</imagen>
-            <descripcion>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</descripcion>
+            <imagen>https://newzoo.com/wp-content/uploads/api/games/artworks/game--roblox.jpg</imagen>
+            <descripcion>Igual de los primeros juegos que jugue con conciencia y con gran variedad de modalidades para un solo juego le agrego un contenido inmenzo manteniendoce vigente pero ahora lleno de juegos pay to win .</descripcion>
         </juego>
         <juego>
             <nombre>Left 4 Dead</nombre>
-            <imagen>https://placehold.co/300x300?text=Left+4+Dead</imagen>
-            <descripcion>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</descripcion>
+            <imagen>https://upload.wikimedia.org/wikipedia/en/b/ba/Left4Dead2.jpg</imagen>
+            <descripcion>El primer juego que jugue en un xbox360 super entretenido el e metido horas al juego aunque nunca me lo e pasado.</descripcion>
         </juego>
         <juego>
             <nombre>Halo</nombre>
-            <imagen>https://placehold.co/300x300?text=Halo</imagen>
-            <descripcion>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</descripcion>
+            <imagen>https://store-images.s-microsoft.com/image/apps.60927.14018605831064250.443dafeb-7b4f-43fb-9452-0232c2810ba0.6c4e60ff-cf46-4b2e-8d42-13bd469e6840</imagen>
+            <descripcion>Un juego que me recuerda a mi hermano cunado lo veia jugar desde la computadora nunca le entendia pero me llamaba la atencion los colores lacers y cosas del juego.</descripcion>
         </juego>
         <juego>
             <nombre>Hylics</nombre>
-            <imagen>https://placehold.co/300x300?text=Hylics</imagen>
-            <descripcion>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</descripcion>
+            <imagen>https://m.media-amazon.com/images/M/MV5BMGU1ZDVkN2YtNTk0ZC00MjE1LWE1ZTItYWI1MTU0N2ZjNmMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</imagen>
+            <descripcion>Juego supes psicodelico lleno de un arte extrano pero completo solo para disfurtar visualmente.</descripcion>
         </juego>
         <juego>
             <nombre>Cuphead</nombre>
-            <imagen>https://placehold.co/300x300?text=Cuphead</imagen>
-            <descripcion>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</descripcion>
+            <imagen>https://upload.wikimedia.org/wikipedia/en/e/eb/Cuphead_%28artwork%29.png</imagen>
+            <descripcion>El juego platafromero mas dificil que he jugado despues de los rocketman de la nes super complejo lleno de arte me encanta el estilo artistico fue uno de los motivantes para entrar en el mundo del arte.</descripcion>
         </juego>
     </seccion>
 </blog_y2k>
