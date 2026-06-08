@@ -133,6 +133,7 @@ body {
     transform: translateY(-4px);
     border-color: rgba(200, 160, 255, 0.8);
     background: rgba(30, 25, 55, 0.7);
+    
 }
 
 .game-card img {
