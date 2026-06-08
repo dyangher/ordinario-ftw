@@ -3,9 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/*degradado donfo*/
 body {
-    /* Degradado Frutiger Aero: Azul cielo, verde menta y toques morados */
     background: radial-gradient(circle at 80% 20%, rgba(160, 100, 255, 0.5), transparent 60%),
                 linear-gradient(135deg, #3b8fd9 0%, #6bc46d 40%, #a35ad6 100%);
     font-family: 'Segoe UI', 'Tahoma', 'Verdana', 'Arial', sans-serif;
