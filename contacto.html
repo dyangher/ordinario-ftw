@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Ventana flotante</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la ventana de contacto */
+        body {
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+        .floating-window {
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(110, 80, 200, 0.8);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-back:hover {
+            background: rgba(130, 100, 220, 0.9);
+            transform: scale(1.02);
+        }
+        input, textarea {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #aa99ff;
+            border-radius: 8px;
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+            font-family: inherit;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            font-weight: 600;
+            color: #e0d8ff;
+        }
+        .success-message {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="floating-window">
+    <div class="window-container">
+        <div class="title-bar">
+            <span class="title-text">📨 Contacto - Enviar mensaje</span>
+            <div class="window-controls">
+                <a href="dyangher.html" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">X</a>
+            </div>
+        </div>
+        <div class="content" style="padding: 24px;">
+            <!-- SECCIÓN LOGIN -->
+            <div id="login-section">
+                <h2 style="color: #e0d8ff; margin-bottom: 16px;">🔐 Inicia sesión</h2>
+                <p>Usuario: <strong>USER</strong> | Contraseña: <strong>1234567890</strong></p>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-back" style="background: #6a4e9e;">Ingresar</button>
+                    <div id="loginError" style="color: #ff9999; margin-top: 12px;"></div>
+                </form>
+            </div>
+
+            <!-- SECCIÓN FORMULARIO DE MENSAJE (oculta inicialmente) -->
+            <div id="message-section" style="display: none;">
+                <h2 style="color: #e0d8ff; margin-bottom: 16px;">✉️ Nuevo mensaje</h2>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea id="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-back">Enviar mensaje</button>
+                    <div id="messageSuccess" style="color: #a0ffa0; margin-top: 12px;"></div>
+                </form>
+            </div>
+
+            <!-- SECCIÓN ÉXITO (después de enviar) -->
+            <div id="success-section" style="display: none; text-align: center;">
+                <h2 style="color: #e0d8ff;">✅ ¡Mensaje enviado!</h2>
+                <p>Gracias por contactarme. Pronto recibirás respuesta.</p>
+                <a href="index.html" class="btn-back">🏠 Volver al inicio</a>
+                <br><br>
+                <a href="dyangher.html" style="color: #aa99ff;">← Regresar al perfil</a>
+            </div>
+        </div>
+        <div class="footer">
+            Sistema de contacto - DYANGHER
+        </div>
+    </div>
+</div>
+
+<script>
+    // Credenciales fijas
+    const VALID_USER = "USER";
+    const VALID_PASS = "1234567890";
+
+    const loginSection = document.getElementById('login-section');
+    const messageSection = document.getElementById('message-section');
+    const successSection = document.getElementById('success-section');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const messageForm = document.getElementById('messageForm');
+    const messageSuccess = document.getElementById('messageSuccess');
+
+    // Manejar login
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+
+        if (user === VALID_USER && pass === VALID_PASS) {
+            loginSection.style.display = 'none';
+            messageSection.style.display = 'block';
+            loginError.textContent = '';
+        } else {
+            loginError.textContent = 'Usuario o contraseña incorrectos.';
+        }
+    });
+
+    // Manejar envío de mensaje
+    messageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        // Aquí podrías hacer un fetch real, pero simulamos éxito
+        console.log(`Mensaje de ${nombre} (${email}): ${mensaje}`);
+        messageSuccess.textContent = '✅ Enviado correctamente. Redirigiendo...';
+        
+        // Mostrar sección de éxito después de 1 segundo
+        setTimeout(() => {
+            messageSection.style.display = 'none';
+            successSection.style.display = 'block';
+        }, 800);
+    });
+</script>
+</body>
+</html>

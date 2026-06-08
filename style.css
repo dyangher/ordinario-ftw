@@ -3,7 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-/*degradado donfo*/
+
+/* degradado fondo */
 body {
     background: radial-gradient(circle at 80% 20%, rgba(160, 100, 255, 0.5), transparent 60%),
                 linear-gradient(135deg, #3b8fd9 0%, #6bc46d 40%, #a35ad6 100%);
@@ -15,7 +16,6 @@ body {
 .window-container {
     max-width: 1300px;
     margin: 0 auto;
-    /* Cristal traslúcido Windows 7 Aero con matiz morado/azul */
     background: linear-gradient(135deg, rgba(240, 248, 255, 0.5), rgba(220, 210, 255, 0.4));
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
@@ -78,13 +78,14 @@ body {
     border-color: #a04050;
 }
 
-/* Navegación entre páginas (barra estilo Windows) */
+/* Navegación */
 .nav-bar {
     background: rgba(8, 6, 16, 0.6);
     backdrop-filter: blur(8px);
     padding: 12px 20px;
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
@@ -118,120 +119,179 @@ body {
 }
 
 .game-card {
-    background: rgba(20, 20, 45, 0.65);
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(12px);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 18px;
-    border: 1px solid rgba(200, 180, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.7);
     text-align: center;
     transition: 0.2s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .game-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(200, 160, 255, 0.8);
-    background: rgba(30, 25, 55, 0.7);
-    
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
 }
 
 .game-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 16px;
     margin-bottom: 14px;
-    background: #1a1530;
 }
 
 .game-card h3 {
-    color: #e0e0ff;
+    color: #0f2c48;
     margin-bottom: 10px;
-    font-size: 1.2rem;
 }
 
 .game-card p {
-    color: #ccc5ee;
+    color: #1a3a5a;
+    font-size: 0.85rem;
+}
+
+/* Tarjetas de música */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.music-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.music-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.music-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.music-card h3 {
+    color: #0f2c48;
+    margin: 8px 0 6px;
+    font-size: 1.2rem;
+}
+
+.music-card p {
+    color: #1a3a5a;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* ===== TABLA DINÁMICA ESTILO FRUTIGER AERO (sin neón) ===== */
+.tabla-bandas {
+    margin-top: 2rem;
+    background: rgba(20, 20, 45, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(200, 180, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.tabla-bandas h2 {
+    font-family: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #e0d8ff;
+    text-shadow: none;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    border-left: 5px solid #aa99ff;
+    padding-left: 14px;
+}
+
+.controles {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.controles button {
+    background: rgba(30, 25, 60, 0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #e0dcff;
+    font-family: inherit;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.controles button:hover {
+    background: rgba(110, 80, 200, 0.8);
+    border-color: white;
+    color: white;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(160, 120, 255, 0.5);
+}
+
+.tabla-container {
+    overflow-x: auto;
+    border-radius: 16px;
+    background: rgba(20, 20, 45, 0.4);
+    padding: 0.2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: inherit;
+}
+
+th, td {
+    border: 1px solid rgba(200, 180, 255, 0.4);
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: top;
+    color: #e5e0ff;
+}
+
+th {
+    background: rgba(30, 25, 60, 0.8);
+    color: #e0d8ff;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.imagen-banda img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #1a1530;
+    border: 1px solid #8a7ac0;
+    box-shadow: none;
+}
+
+td:nth-child(3) {
     font-size: 0.85rem;
     line-height: 1.4;
 }
 
-/* Pestañas para música */
-.music-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 6px;
-}
-
-.music-tab-btn {
-    background: rgba(30, 25, 60, 0.7);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 8px 20px;
-    border-radius: 24px;
-    color: #e0dcff;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.1s;
-}
-
-.music-tab-btn.active {
-    background: rgba(110, 80, 200, 0.8);
-    color: white;
-    border-color: white;
-    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(160, 120, 255, 0.5);
-}
-
-.music-tab-pane {
-    display: none;
-    animation: fade 0.2s ease;
-}
-
-.music-tab-pane.active {
-    display: block;
-}
-
-/* Cards para bandas (estilo similar a juegos pero horizontal) */
-.band-card {
-    background: rgba(20, 20, 45, 0.65);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 24px;
-    border: 1px solid rgba(200, 180, 255, 0.4);
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.band-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 16px;
-    background: #1a1530;
-    border: 1px solid #8a7ac0;
-}
-
-.band-info {
-    flex: 1;
-}
-
-.band-info h3 {
-    color: #e0e0ff;
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-}
-
-.band-info p {
-    color: #ccc5ee;
-    margin-bottom: 6px;
-}
-
-/* Perfil */
+/* Perfil / otros elementos */
 .profile-header {
     display: flex;
     flex-wrap: wrap;
@@ -289,144 +349,19 @@ body {
 
 .footer {
     text-align: center;
-    padding: 14px;
+    padding: 20px;
     border-top: 1px solid rgba(255,255,255,0.2);
     font-size: 11px;
     color: #e5dcff;
     background: rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fade {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+/* Responsive */
 @media (max-width: 700px) {
     .band-card { flex-direction: column; text-align: center; }
     .cards-grid { grid-template-columns: 1fr; }
-}
-/* Tarjetas de música - estilo ventanas flotantes */
-.music-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
-
-.music-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    border-radius: 18px;
-    padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    text-align: center;
-    transition: 0.2s;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.music-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-}
-
-.music-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    background: #fff;
-}
-
-.music-card h3 {
-    color: #0f2c48;
-    margin: 8px 0 6px;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.music-card p {
-    color: #1a3a5a;
-    font-size: 0.8rem;
-    line-height: 1.4;
-}
-/* Tarjetas de música - estilo ventanas flotantes */
-.music-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
-
-.music-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    border-radius: 18px;
-    padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    text-align: center;
-    transition: 0.2s;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.music-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.6);
-}
-
-.music-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 14px;
-    margin-bottom: 12px;
-}
-
-.music-card h3 {
-    color: #0f2c48;
-    margin: 8px 0 6px;
-    font-size: 1.2rem;
-}
-
-.music-card p {
-    color: #1a3a5a;
-    font-size: 0.8rem;
-    line-height: 1.4;
-}
-
-/* Tarjetas de juegos (ya deberías tener .game-card, pero si no, aquí está) */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
-}
-
-.game-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    text-align: center;
-    transition: 0.2s;
-}
-
-.game-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 16px;
-    margin-bottom: 14px;
-}
-
-.game-card h3 {
-    color: #0f2c48;
-    margin-bottom: 10px;
-}
-
-.game-card p {
-    color: #1a3a5a;
-    font-size: 0.85rem;
+    .tabla-bandas { padding: 1rem; }
+    th, td { padding: 0.5rem; font-size: 0.75rem; }
+    .imagen-banda img { width: 40px; height: 40px; }
+    .content { padding: 20px; }
 }

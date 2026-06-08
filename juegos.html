@@ -16,18 +16,90 @@
         </div>
     </div>
     <div class="nav-bar">
-        <a href="index.html">Inicio</a>
-        <a href="musica.html">Música</a>
+        <a href="index.html"> Inicio </a>
+        <a href="musica.html"> Música</a>
         <a href="juegos.html">Juegos</a>
         <a href="dyangher.html">Dyangher</a>
+
     </div>
     <div class="content">
-        <div class="cards-grid">
-    <!-- Aquí el script insertará las tarjetas automáticamente -->
+        <!-- Botones de ordenamiento dinámico -->
+        <div class="controles" style="margin-bottom: 1.5rem;">
+            <button id="orden-asc">▲ Ordenar A-Z</button>
+            <button id="orden-desc">▼ Ordenar Z-A</button>
+            <button id="orden-random">🎲 Orden aleatorio</button>
         </div>
+
+        <!-- Grid de tarjetas de juegos (cargado por script.js) -->
+        <div class="cards-grid"></div>
     </div>
-    <div class="footer">Los datos se cargan desde datos.xml. Edita ese archivo para cambiar juegos, imágenes o textos.</div>
+    <div class="footer">
+        <details>
+            Los datos se cargan desde datos.xml. DYANGHER WAS HERE
+        </details>
+    </div>
 </div>
+
 <script src="script.js"></script>
+<script>
+    // Script para ordenar las tarjetas de juegos dinámicamente
+    (function() {
+        // Esperar a que script.js haya cargado las tarjetas
+        setTimeout(() => {
+            const grid = document.querySelector('.cards-grid');
+            if (!grid) return;
+
+            function obtenerTarjetas() {
+                return Array.from(grid.children);
+            }
+
+            function renderizarTarjetas(tarjetas) {
+                grid.innerHTML = '';
+                tarjetas.forEach(card => grid.appendChild(card));
+            }
+
+            // Ordenar por nombre (A-Z)
+            const btnAsc = document.getElementById('orden-asc');
+            if (btnAsc) {
+                btnAsc.addEventListener('click', () => {
+                    let tarjetas = obtenerTarjetas();
+                    tarjetas.sort((a, b) => {
+                        let nombreA = a.querySelector('h3')?.textContent || '';
+                        let nombreB = b.querySelector('h3')?.textContent || '';
+                        return nombreA.localeCompare(nombreB);
+                    });
+                    renderizarTarjetas(tarjetas);
+                });
+            }
+
+            // Ordenar por nombre (Z-A)
+            const btnDesc = document.getElementById('orden-desc');
+            if (btnDesc) {
+                btnDesc.addEventListener('click', () => {
+                    let tarjetas = obtenerTarjetas();
+                    tarjetas.sort((a, b) => {
+                        let nombreA = a.querySelector('h3')?.textContent || '';
+                        let nombreB = b.querySelector('h3')?.textContent || '';
+                        return nombreB.localeCompare(nombreA);
+                    });
+                    renderizarTarjetas(tarjetas);
+                });
+            }
+
+            // Orden aleatorio
+            const btnRandom = document.getElementById('orden-random');
+            if (btnRandom) {
+                btnRandom.addEventListener('click', () => {
+                    let tarjetas = obtenerTarjetas();
+                    for (let i = tarjetas.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [tarjetas[i], tarjetas[j]] = [tarjetas[j], tarjetas[i]];
+                    }
+                    renderizarTarjetas(tarjetas);
+                });
+            }
+        }, 500); // Pequeño retraso para asegurar que script.js ya cargó las tarjetas
+    })();
+</script>
 </body>
 </html>

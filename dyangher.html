@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <title>Dyangher - Perfil</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo adicional para el botón de contacto (opcional, puedes moverlo a style.css) */
+        .btn-contacto {
+            display: inline-block;
+            margin-top: 12px;
+            background: rgba(110, 80, 200, 0.8);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-contacto:hover {
+            background: rgba(130, 100, 220, 0.9);
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 <body>
 <div class="window-container">
     <div class="title-bar">
-        <span class="title-text">Dyangher - Blog personal</span>
+        <span class="title-text">Dyangher - MY2K BLOG</span>
         <div class="window-controls">
             <button class="btn">-</button>
             <button class="btn max">□</button>
@@ -23,31 +41,47 @@
     </div>
     <div class="content">
         <div class="profile-header">
-            <div class="avatar-placeholder">AVATAR</div>
+            <div class="avatar-placeholder">  
+               <img class="avatar-placeholder" src="https://instagram.fjal2-1.fna.fbcdn.net/v/t51.75761-15/474703628_18074324383647843_2072188830115814652_n.webp?_nc_cat=107&ig_cache_key=MzU1MTMwNTgwNjI0MDkwODU1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=UkrgXXir7wcQ7kNvwEy1h6y&_nc_oc=AdroRiUxSQhF9ik1a1YaA9euDQlYMUJH9sAXdtuNNy7EDHeiCFGo7GEcRD3YjSsZO8pouDjvJYURN6Uah6WVe1Wl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fjal2-1.fna&_nc_gid=3AAApzj5aoie9Uv-cT3_eQ&_nc_ss=7a22e&oh=00_Af9cWwbVkGGdQEvEjg-DbSOS8lD3BEgof5I9A8cxU48MeA&oe=6A2CACD3" alt="Descripción de la imagen">
+            </div>
             <div>
-                <h1 style="color:#bbb0e0;">Dyangher</h1>
-                <p><strong>Diseñador · Músico · Gamer</strong></p>
+                <h1 style="color:#1a006d;">Dyangher</h1>
+                <p><strong>Artista digital</strong></p>
             </div>
         </div>
         <div class="panel">
             <h2>Sobre mí</h2>
-            <p>Escribe aquí tu biografía. Puedes contar de dónde eres, qué te gusta, etc.</p>
+            <p>soy dylan en internet tengo el user de Dyangher,
+                disfruto de la musica variada como lo es el
+                hiphop, rock, rap, ska, metal, salsa, etc. me gusta el arte en general toda forma de expresarlo me parece maravillosa el area que mas me gusta de este es la pintura y el dibujo tanto urbano como tecnico.</p>
         </div>
         <div class="panel">
             <h2>Habilidades</h2>
             <ul class="styled-list">
-                <li>[Habilidad 1]</li>
-                <li>[Habilidad 2]</li>
-                <li>[Habilidad 3]</li>
+                <li>Dibujo digital</li>
+                <li>animaciones 2d super basicas</li>
+                <li>manejo parcial de el ingles</li>
             </ul>
         </div>
         <div class="panel">
             <h2>Contacto</h2>
-            <p>Email: [tuemail@ejemplo.com]<br>Redes sociales: @usuario</p>
+            <p>Email: Dyanger06@gmail.com<br>Redes sociales: <a href="https://www.instagram.com/dyangher/" target="_blank">Dyangher</a></p>
+            <!-- Botón que abre la ventana flotante de contacto -->
+            <a href="contacto.html" class="btn-contacto">📧 Enviar mensaje</a>
         </div>
     </div>
-    <div class="footer">Edita toda la información en dyangher.html</div>
+    <div class="footer">DYANGHER WAS HERE</div>
 </div>
 <script src="script.js"></script>
+<script>
+    // Desactivar funcionalidad de los botones de ventana (decorativos)
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
+</script>
 </body>
 </html>
