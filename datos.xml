@@ -1,49 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blog_y2k>
     <info>
-        <titulo>Blog Y2K - Frutiger Aero Nocturno</titulo>
-        <descripcion>Datos de música, juegos y perfil para editar</descripcion>
-        <fecha_actualizacion>2025-06-07</fecha_actualizacion>
+        <titulo>Blog Y2K - Frutiger Aero</titulo>
+        <descripcion>Datos cargados desde XML</descripcion>
     </info>
 
     <seccion nombre="musica">
-        <entrada>
-            <banda>[Nombre banda]</banda>
-            <album>[Álbum destacado]</album>
-            <genero>[Género]</genero>
-            <anio>200X</anio>
-        </entrada>
-        <entrada>
-            <banda>[Otra banda]</banda>
-            <album>[Álbum]</album>
-            <genero>[Género]</genero>
-            <anio>20XX</anio>
-        </entrada>
+        <banda>
+            <nombre>Radiohead</nombre>
+            <imagen>https://i.scdn.co/image/ab676161000051744104fbd80f1f795728abbd59</imagen>
+            <descripcion>Me encanta la musica de radio head, la encierran mucho en que solo es popular creep pero todos sus albumes son una maravilla ojala y se den el tiempo de escucharlos.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Pink Floyd</nombre>
+            <imagen>https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/102010/piky.png?itok=GFpkgIk6</imagen>
+            <descripcion>Una banda con canciones que pueden durar 2 minutos o 10 pero vale la pena escucharlos sobretodo el album de the divition bell.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Green Day</nombre>
+            <imagen>https://cdn-images.dzcdn.net/images/cover/4ceae9c98cb3d619c84bb87c3a8d737d/1900x1900-000000-80-0-0.jpg</imagen>
+            <descripcion>Banda posser que me recomendo una amiga por eso le tengo un gran aprecion y aun asi se escucha muy chida sobretodo dokie.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Megadeth</nombre>
+            <imagen>https://m.media-amazon.com/images/I/81KM0plGIpL.jpg</imagen>
+            <descripcion>esta banda me la recomendo mi mejor amigo, es de las mejores que e escuchado no me cansaria de escuchar su discografia completa por que es muy variada y tiene una gran cantidad de canciones.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Haragan y Cía</nombre>
+            <imagen>https://i.scdn.co/image/ab6761610000e5eb1bcf35e2585d345f6e67192a</imagen>
+            <descripcion>De las mejores bandas con canciones iconicas cono muñequita sintetica, el no lo mato, juan el dezcuartizador, tuve la oportunidad de escucharla en vivo y fue de las mejores experiencias.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Panteón Rococó</nombre>
+            <imagen>https://i.scdn.co/image/ab67616d0000b273ef4bb48191b9d3f5fd779324</imagen>
+            <descripcion>Banda de ska a la que le tengo un gran cariño por que fue la primera banda a la que fui envivo a un concierto con las ancias de escuchar canciones como vendedora de caricias, toloache pa'mi negra, la carecia fue la mejor experiencia que e tenido.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Caifanes</nombre>
+            <imagen>https://i.scdn.co/image/ab67616d00001e0252842eb76a050aa8daec1251</imagen>
+            <descripcion>escucharlos es un viaje hermoso por el rock antiguo con una discografia algo pequeña me llena de emociones .</descripcion>
+        </banda>
+        <banda>
+            <nombre>Enjambre</nombre>
+            <imagen>https://i.scdn.co/image/ab67616d0000b2735a6182a76ba2e4d04d9cf93f</imagen>
+            <descripcion>Otra recomendacion de mi mejor amiga, cada que los escucho recierdo momentos con ella y me provoca muchos sentimientos.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Misfits</nombre>
+            <imagen>https://i5.walmartimages.com/asr/8b8c7299-f229-4cbc-917d-e163aff4044c.216ba7d2128ea44c6ab2ac34cd780ba6.jpeg?odnHeight=768&amp;odnWidth=768&amp;odnBg=FFFFFF</imagen>
+            <descripcion>Horror punk me encanta la tematica que tiene y el sonido me da muchas vibras a halloween por completo oscuro y tetrico con un sonido sucio que te envuelve.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Muse</nombre>
+            <imagen>https://cdn-images.dzcdn.net/images/cover/d51fca27f4e6f891e64eaab425264fce/0x1900-000000-80-0-0.jpg</imagen>
+            <descripcion>Rock alternativo del bueno es de las bandas con un sonido que me me hace alucinar de tanta caracteristica que los representa.</descripcion>
+        </banda>
+        <banda>
+            <nombre>Tyler, the Creator</nombre>
+            <imagen>https://upload.wikimedia.org/wikipedia/en/5/51/Igor_-_Tyler%2C_the_Creator.jpg</imagen>
+            <descripcion>IGOR me proboca un centimiento de inicio a fin puedo estar escuchando su discografia entera sin cansarme, es de los mejores artistas que he escuchado y lo mantengo en mi top hasta dia de hoy.</descripcion>
+        </banda>
+        <banda>
+            <nombre>YE (Kanye West)</nombre>
+            <imagen>https://mavnewspaper.com/wp-content/uploads/2021/04/Life-of-Pablo-Image.jpg</imagen>
+            <descripcion>hay que separar el arte del artista(fuck taylor swift).</descripcion>
+        </banda>
     </seccion>
 
     <seccion nombre="juegos">
         <juego>
-            <titulo>[Título del juego]</titulo>
-            <plataforma>[PC / Consola]</plataforma>
-            <anio>[Año]</anio>
-            <review>[Tu review corta]</review>
+            <nombre>Minecraft</nombre>
+            <imagen>https://placehold.co/300x300?text=Minecraft</imagen>
+            <descripcion>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</descripcion>
         </juego>
         <juego>
-            <titulo>[Otro juego]</titulo>
-            <plataforma>[Plataforma]</plataforma>
-            <anio>[Año]</anio>
+            <nombre>Fortnite</nombre>
+            <imagen>https://placehold.co/300x300?text=Fortnite</imagen>
+            <descripcion>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</descripcion>
         </juego>
-    </seccion>
-
-    <seccion nombre="dyangher">
-        <perfil>
-            <nombre>Dyangher</nombre>
-            <bio>[me encanta salir a caminar la musica en general dibujar]</bio>
-            <habilidades>
-                <habilidad>[Habilidad 1]</habilidad>
-                <habilidad>[Habilidad 2]</habilidad>
-            </habilidades>
-            <contacto email="[tuemail@ejemplo.com]" red_social="@usuario" />
-        </perfil>
+        <juego>
+            <nombre>Roblox</nombre>
+            <imagen>https://placehold.co/300x300?text=Roblox</imagen>
+            <descripcion>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</descripcion>
+        </juego>
+        <juego>
+            <nombre>Left 4 Dead</nombre>
+            <imagen>https://placehold.co/300x300?text=Left+4+Dead</imagen>
+            <descripcion>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</descripcion>
+        </juego>
+        <juego>
+            <nombre>Halo</nombre>
+            <imagen>https://placehold.co/300x300?text=Halo</imagen>
+            <descripcion>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</descripcion>
+        </juego>
+        <juego>
+            <nombre>Hylics</nombre>
+            <imagen>https://placehold.co/300x300?text=Hylics</imagen>
+            <descripcion>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</descripcion>
+        </juego>
+        <juego>
+            <nombre>Cuphead</nombre>
+            <imagen>https://placehold.co/300x300?text=Cuphead</imagen>
+            <descripcion>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</descripcion>
+        </juego>
     </seccion>
 </blog_y2k>

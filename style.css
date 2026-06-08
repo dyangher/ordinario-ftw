@@ -352,3 +352,82 @@ body {
     font-size: 0.8rem;
     line-height: 1.4;
 }
+/* Tarjetas de música - estilo ventanas flotantes */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.music-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.music-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.music-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+}
+
+.music-card h3 {
+    color: #0f2c48;
+    margin: 8px 0 6px;
+    font-size: 1.2rem;
+}
+
+.music-card p {
+    color: #1a3a5a;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Tarjetas de juegos (ya deberías tener .game-card, pero si no, aquí está) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+    transition: 0.2s;
+}
+
+.game-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 14px;
+}
+
+.game-card h3 {
+    color: #0f2c48;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: #1a3a5a;
+    font-size: 0.85rem;
+}

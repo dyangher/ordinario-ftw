@@ -1,98 +1,131 @@
-// script.js - Carga datos del XML y los muestra en paneles adicionales
+// script.js - Carga datos desde XML y genera tarjetas de música y juegos
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('datos.xml')
-        .then(response => response.text())
-        .then(xmlString => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-            
-            // Detectar en qué página estamos por el título o el body
-            const pagina = document.title.toLowerCase();
-            
-            // Función para agregar un panel extra con datos del XML
-            function agregarPanel(contenido, titulo) {
-                const contentDiv = document.querySelector('.content');
-                if (!contentDiv) return;
-                const nuevoPanel = document.createElement('div');
-                nuevoPanel.className = 'panel';
-                nuevoPanel.innerHTML = `<h2>📄 Datos desde XML: ${titulo}</h2>${contenido}`;
-                contentDiv.appendChild(nuevoPanel);
-            }
+    console.log('Script iniciado. Buscando datos.xml...');
 
-            // ---------------- MÚSICA ----------------
-            if (pagina.includes('música') || document.body.innerHTML.includes('musica.html')) {
-                const bandas = xmlDoc.querySelectorAll('entrada');
-                let lista = '<ul class="styled-list">';
-                bandas.forEach(b => {
-                    const nombre = b.querySelector('banda')?.textContent || '?';
-                    const album = b.querySelector('album')?.textContent || '?';
-                    lista += `<li><strong>${nombre}</strong> - ${album}</li>`;
-                });
-                lista += '</ul>';
-                agregarPanel(lista, 'Bandas desde XML');
-            }
-            
-            // ---------------- JUEGOS ----------------
-            if (pagina.includes('juego') || document.body.innerHTML.includes('juegos.html')) {
-                const juegos = xmlDoc.querySelectorAll('juego');
-                let lista = '<ul class="styled-list">';
-                juegos.forEach(j => {
-                    const titulo = j.querySelector('titulo')?.textContent || '?';
-                    const plataforma = j.querySelector('plataforma')?.textContent || '?';
-                    lista += `<li><strong>${titulo}</strong> (${plataforma})</li>`;
-                });
-                lista += '</ul>';
-                agregarPanel(lista, 'Juegos desde XML');
-            }
-            
-            // ---------------- DYANGHER (perfil) ----------------
-            if (pagina.includes('dyangher') || document.body.innerHTML.includes('dyangher.html')) {
-                const bio = xmlDoc.querySelector('bio')?.textContent || 'No hay biografía en XML';
-                const habilidades = xmlDoc.querySelectorAll('habilidad');
-                let listaHab = '<ul class="styled-list">';
-                habilidades.forEach(h => listaHab += `<li>${h.textContent}</li>`);
-                listaHab += '</ul>';
-                const contacto = xmlDoc.querySelector('contacto');
-                const email = contacto?.getAttribute('email') || 'No especificado';
-                const redes = contacto?.getAttribute('red_social') || 'No especificado';
-                const contenido = `
-                    <p><strong>Biografía:</strong> ${bio}</p>
-                    <p><strong>Habilidades:</strong></p>${listaHab}
-                    <p><strong>Email:</strong> ${email}<br><strong>Redes:</strong> ${redes}</p>
-                `;
-                agregarPanel(contenido, 'Perfil desde XML');
-            }
-            
-            // Opcional: mostrar en consola que se cargó
-            console.log('XML cargado correctamente');
-        })
-        .catch(error => console.error('Error al cargar el XML:', error));
-});
-// Pestañas internas de la página música.html
-document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.music-tab-btn');
-    const panes = document.querySelectorAll('.music-tab-pane');
-    
-    if (tabs.length) {
-        tabs.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.getAttribute('data-tab');
-                tabs.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                panes.forEach(pane => {
-                    pane.classList.remove('active');
-                    if (pane.id === target) pane.classList.add('active');
-                });
-            });
+    // Función auxiliar para escapar HTML
+    function escapeHTML(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
         });
     }
-    
-    // Pequeño efecto: si hay botones de ventana, no hacen nada (solo decorativos)
-    const closeBtns = document.querySelectorAll('.btn.close');
-    closeBtns.forEach(btn => {
+
+    // Función para mostrar errores dentro de los contenedores
+    function mostrarError(contenedor, mensaje) {
+        if (contenedor) {
+            contenedor.innerHTML = `<div class="panel" style="background: rgba(255,200,200,0.8); border: 1px solid red; text-align:center;">
+                <p style="color: darkred;">⚠️ ${mensaje}</p>
+                <p style="font-size: 0.8rem;">Revisa la consola (F12) para más detalles.</p>
+            </div>`;
+        }
+        console.error(mensaje);
+    }
+
+    // Cargar el XML
+    fetch('datos.xml')
+        .then(response => {
+            console.log('Respuesta del fetch:', response.status, response.statusText);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: No se pudo cargar datos.xml. Asegúrate de que el archivo existe en la misma carpeta.`);
+            }
+            return response.text();
+        })
+        .then(xmlString => {
+            console.log('XML cargado, longitud:', xmlString.length);
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+            // Detectar error de sintaxis en el XML
+            const parseError = xmlDoc.querySelector('parsererror');
+            if (parseError) {
+                throw new Error('Error de sintaxis en el XML: ' + parseError.textContent.substring(0, 150));
+            }
+
+            console.log('XML parseado correctamente');
+
+            // Determinar en qué página estamos
+            const path = window.location.pathname;
+            const isMusica = path.includes('musica.html') || document.querySelector('.music-grid');
+            const isJuegos = path.includes('juegos.html') || document.querySelector('.cards-grid');
+
+            // --- Cargar MÚSICA (si estamos en musica.html o hay .music-grid) ---
+            if (isMusica) {
+                const container = document.querySelector('.music-grid');
+                if (container) {
+                    container.innerHTML = ''; // limpiar
+                    const bandas = xmlDoc.querySelectorAll('banda');
+                    console.log(`Bandas encontradas: ${bandas.length}`);
+                    if (bandas.length === 0) {
+                        container.innerHTML = '<div class="panel"><p>No se encontraron bandas en el XML.</p></div>';
+                    } else {
+                        bandas.forEach(banda => {
+                            const nombre = banda.querySelector('nombre')?.textContent || 'Sin nombre';
+                            const imagen = banda.querySelector('imagen')?.textContent || 'https://placehold.co/200x200';
+                            const descripcion = banda.querySelector('descripcion')?.textContent || '';
+                            const card = document.createElement('div');
+                            card.className = 'music-card';
+                            card.innerHTML = `
+                                <img src="${imagen}" alt="${nombre}" loading="lazy" onerror="this.src='https://placehold.co/200x200?text=Error+imagen'">
+                                <h3>${escapeHTML(nombre)}</h3>
+                                <p>${escapeHTML(descripcion)}</p>
+                            `;
+                            container.appendChild(card);
+                        });
+                        console.log(`✅ Se generaron ${bandas.length} tarjetas de música.`);
+                    }
+                }
+            }
+
+            // --- Cargar JUEGOS (si estamos en juegos.html o hay .cards-grid) ---
+            if (isJuegos) {
+                const container = document.querySelector('.cards-grid');
+                if (container) {
+                    container.innerHTML = '';
+                    const juegos = xmlDoc.querySelectorAll('juego');
+                    console.log(`Juegos encontrados: ${juegos.length}`);
+                    if (juegos.length === 0) {
+                        container.innerHTML = '<div class="panel"><p>No se encontraron juegos en el XML.</p></div>';
+                    } else {
+                        juegos.forEach(juego => {
+                            const nombre = juego.querySelector('nombre')?.textContent || 'Sin título';
+                            const imagen = juego.querySelector('imagen')?.textContent || 'https://placehold.co/300x300';
+                            const descripcion = juego.querySelector('descripcion')?.textContent || '';
+                            const card = document.createElement('div');
+                            card.className = 'game-card';
+                            card.innerHTML = `
+                                <img src="${imagen}" alt="${nombre}" loading="lazy" onerror="this.src='https://placehold.co/300x300?text=Error+imagen'">
+                                <h3>${escapeHTML(nombre)}</h3>
+                                <p>${escapeHTML(descripcion)}</p>
+                            `;
+                            container.appendChild(card);
+                        });
+                        console.log(`✅ Se generaron ${juegos.length} tarjetas de juegos.`);
+                    }
+                }
+            }
+
+            // Si no hay contenedor en esta página, no pasa nada (ej: index.html)
+        })
+        .catch(error => {
+            console.error('❌ Error al procesar el XML:', error);
+            // Mostrar error visual en los contenedores si existen
+            const musicContainer = document.querySelector('.music-grid');
+            const gamesContainer = document.querySelector('.cards-grid');
+            const msg = error.message;
+            if (musicContainer) mostrarError(musicContainer, msg);
+            if (gamesContainer) mostrarError(gamesContainer, msg);
+        });
+
+    // Desactivar funcionalidad de los botones de ventana (decorativos)
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            // no hace nada, solo decorativo
+            e.stopPropagation();
+            // No hacen nada
         });
     });
 });
